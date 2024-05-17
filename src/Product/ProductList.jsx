@@ -1,14 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { ProductContext } from '../Context/ProductContext';
 
 function ProductList() {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products?limit=30')
-            .then(response => response.json())
-            .then(data => setProducts(data))
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
+    const { products } = useContext(ProductContext);
 
     return (
         <>
