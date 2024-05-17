@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function MovieList() {
+function ProductList() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -10,13 +10,11 @@ function MovieList() {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-    console.log(products)
-
     return (
         <>
             <div className="content">
                 <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
-                    {products.map((element) => {
+                    {products.map((element) => (
                         <figure key={element.id} className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
                             <img className="w-full object-cover" src={element.image} alt="" />
                             <figcaption className="pt-4">
@@ -36,11 +34,11 @@ function MovieList() {
                                 </a>
                             </figcaption>
                         </figure>
-                    })}
+                    ))}
                 </div>
             </div>
         </>
     )
 }
 
-export default MovieList
+export default ProductList;
