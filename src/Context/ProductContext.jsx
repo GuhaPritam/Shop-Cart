@@ -13,9 +13,7 @@ function ProductContextProvider(props) {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-    const contextValue = {
-        products: products, setProducts: setProducts
-    };
+    const contextValue = { products, setProducts };
 
     return (
         <>
@@ -29,7 +27,7 @@ function ProductContextProvider(props) {
 }
 
 ProductContextProvider.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.any.isRequired,
 };
 
 export default ProductContextProvider;
