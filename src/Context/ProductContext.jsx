@@ -13,8 +13,6 @@ const ProductContextProvider = (props) => {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-        
-
     const contextValue = { products, setProducts };
 
     return (

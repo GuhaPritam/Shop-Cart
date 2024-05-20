@@ -1,7 +1,7 @@
 import Star from '../assets/star.svg';
 import PropTypes from 'prop-types';
 
-function Rating({ value }) {
+const Rating = ({ value }) => {
     const integerPart = Math.floor(value);
     const decimalPart = value - integerPart;
     const stars = [];
