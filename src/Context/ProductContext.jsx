@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const ProductContext = createContext(null);
 
-function ProductContextProvider(props) {
+const ProductContextProvider = (props) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -12,6 +12,8 @@ function ProductContextProvider(props) {
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching data:', error));
     }, []);
+
+        
 
     const contextValue = { products, setProducts };
 
@@ -25,6 +27,8 @@ function ProductContextProvider(props) {
         </>
     );
 }
+
+
 
 ProductContextProvider.propTypes = {
     children: PropTypes.any.isRequired,
