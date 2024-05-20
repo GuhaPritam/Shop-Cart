@@ -1,22 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ProductContext } from '../Context/ProductContext';
 import Rating from './Rating';
 import ProductDetail from './ProductDetails';
 
 function ProductCard() {
-  const { products } = useContext(ProductContext);
-  const [showDetails, setShowDetails] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
-  function handleClose() {
-    setSelectedProduct(null);
-    setShowDetails(false);
-  }
-
-  function handelProductSelect(product) {
-    setSelectedProduct(product);
-    setShowDetails(true);
-  }
+  const { products, showDetails, selectedProduct, handleClose, handelProductSelect } = useContext(ProductContext);
 
   return (
     <>
@@ -27,7 +15,7 @@ function ProductCard() {
             <img className="w-full object-cover" src={element.image} alt="" />
             <figcaption className="pt-4">
               <h3 className="text-xl mb-1">{element.title}</h3>
-              <p className="text-[#575A6E] text-sm mb-2">Action/Adventure/Sci-fi</p>
+              <p className="text-[#575A6E] text-sm mb-2">{element.category}</p>
               <div className="flex items-center space-x-1 mb-5">
                 <Rating value={element.rating.rate} />
               </div>

@@ -11,8 +11,8 @@ function ProductDetail({ product, onClose }) {
             />
             <div className="p-5 lg:p-11">
               <div>
-                <h2 className="text-3xl lg:text-[50px] mb-2 font-bold">{product.title}</h2>
-                <span className="block text-base text-[#9fa0a4] dark:text-[#575A6E] my-3">Action/Adventure/Sci-fi</span>
+                <h2 className="text-3xl lg:text-[50px] mb-2 font-bold leading-[3rem]">{product.title}</h2>
+                <span className="block text-base text-[#9fa0a4] dark:text-[#575A6E] my-3">{product.category}</span>
                 <div></div>
               </div>
               <p className="text-sm lg:text-base mb-8 lg:mb-16">
@@ -41,6 +41,7 @@ ProductDetail.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    category: PropTypes.number.isRequired,
   }).isRequired,
   onClose: PropTypes.func.isRequired,
 };
