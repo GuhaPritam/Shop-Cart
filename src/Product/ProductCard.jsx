@@ -4,11 +4,11 @@ import Rating from './Rating';
 import ProductDetail from './ProductDetails';
 
 function ProductCard() {
-  const { products, showDetails, selectedProduct, handleClose, handelProductSelect } = useContext(ProductContext);
+  const { products, showDetails, handelProductSelect } = useContext(ProductContext);
 
   return (
     <>
-      {showDetails && <ProductDetail product={selectedProduct} onClose={handleClose} />}
+      {showDetails && <ProductDetail />}
       {products.map((element) => (
         <figure key={element.id} className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
           <a href="#" onClick={() => handelProductSelect(element)}>

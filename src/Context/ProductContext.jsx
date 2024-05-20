@@ -7,6 +7,7 @@ const ProductContextProvider = (props) => {
     const [products, setProducts] = useState([]);
     const [showDetails, setShowDetails] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [showCart, setShowCart] = useState(false);
 
     function handleClose() {
         setSelectedProduct(null);
@@ -18,6 +19,14 @@ const ProductContextProvider = (props) => {
         setShowDetails(true);
     }
 
+    function handelShowCart() {
+        setShowCart(true);
+    }
+
+    function handelCloseCart() {
+        setShowCart(false);
+    }
+
     useEffect(() => {
         fetch('https://fakestoreapi.com/products?limit=30')
             .then(response => response.json())
@@ -25,7 +34,18 @@ const ProductContextProvider = (props) => {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-    const contextValue = { products, setProducts, showDetails, selectedProduct, handleClose, handelProductSelect };
+    const contextValue = { 
+        products, 
+        setProducts, 
+        showDetails, 
+        selectedProduct, 
+        handleClose, 
+        handelProductSelect, 
+        showCart, 
+        setShowCart, 
+        handelShowCart, 
+        handelCloseCart 
+    };
 
     return (
         <>
