@@ -8,6 +8,22 @@ const ProductContextProvider = (props) => {
     const [showDetails, setShowDetails] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [showCart, setShowCart] = useState(false);
+    const [cartData, setCartData] = useState([])
+
+    function handelAddToCart(e, element) {
+        e.stopPropagation();
+        const found = cartData.find((item) => {
+            return item.id === element.id;
+        })
+        if (!found) {
+            setCartData([
+                ...cartData,
+                element,
+            ])
+        } else {
+            console.error(`The Product ${element.title} already added!`)
+        }
+    }
 
     function handleClose() {
         setSelectedProduct(null);
@@ -34,17 +50,18 @@ const ProductContextProvider = (props) => {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-    const contextValue = { 
-        products, 
-        setProducts, 
-        showDetails, 
-        selectedProduct, 
-        handleClose, 
-        handelProductSelect, 
-        showCart, 
-        setShowCart, 
-        handelShowCart, 
-        handelCloseCart 
+    const contextValue = {
+        products,
+        setProducts,
+        showDetails,
+        selectedProduct,
+        handleClose,
+        handelProductSelect,
+        showCart,
+        setShowCart,
+        handelShowCart,
+        handelCloseCart,
+        handelAddToCart
     };
 
     return (

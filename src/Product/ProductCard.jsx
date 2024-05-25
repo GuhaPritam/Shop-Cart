@@ -4,7 +4,7 @@ import Rating from './Rating';
 import ProductDetail from './ProductDetails';
 
 function ProductCard() {
-  const { products, showDetails, handelProductSelect } = useContext(ProductContext);
+  const { products, showDetails, handelProductSelect, handelAddToCart } = useContext(ProductContext);
 
   return (
     <>
@@ -20,7 +20,7 @@ function ProductCard() {
                 <Rating value={element.rating.rate} />
               </div>
               <a className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
-                href="#">
+                href="#" onClick={(e) => handelAddToCart(e, element)}>
                 <img src="./assets/tag.svg" alt="" />
                 <span>$ {element.price} | Add to Cart</span>
               </a>

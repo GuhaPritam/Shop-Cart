@@ -8,7 +8,8 @@ import CartDetail from './Product/CartDetail';
 
 
 function Header() {
-    const { showCart, handelShowCart } = useContext(ProductContext);
+    const { showCart, handelShowCart, cartData } = useContext(ProductContext);
+    console.log(cartData)
 
     return (
         <>
@@ -33,6 +34,9 @@ function Header() {
                         <li>
                             <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#" onClick={handelShowCart}>
                                 <img src={Shopping_cart} width="24" height="24" alt="" />
+                                {cartData?.length > 0 && (
+                                    <span>{cartData?.length}</span>
+                                )}
                             </a>
                         </li>
                     </ul>

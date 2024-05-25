@@ -41,13 +41,13 @@ function ProductDetail() {
 
 ProductDetail.propTypes = {
   product: PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    category: PropTypes.number.isRequired,
+    image: PropTypes.any.isRequired,
+    title: PropTypes.any.isRequired,
+    description: PropTypes.any.isRequired,
+    price: PropTypes.any.isRequired,
+    category: PropTypes.any.isRequired,
   }).isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.any.isRequired,
 };
 
 export default ProductDetail;
