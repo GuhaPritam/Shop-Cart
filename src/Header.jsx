@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import Logo from './assets/logo.png';
 import Ring from './assets/ring.svg';
-import Dark_Mode from './assets/icons/moon.svg';
+import Moon from './assets/icons/moon.svg';
 import Shopping_cart from './assets/shopping-cart.svg';
 import { ProductContext } from './Context/ProductContext';
 import CartDetail from './Product/CartDetail';
+import Sun from './assets/icons/sun.svg';
 
 
 function Header() {
-    const { showCart, handelShowCart, cartData } = useContext(ProductContext);
+    const { showCart, handelShowCart, cartData, darkMode, handelDarkMode } = useContext(ProductContext);
 
     return (
         <>
@@ -26,8 +27,8 @@ function Header() {
                             </a>
                         </li>
                         <li>
-                            <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#">
-                                <img src={Dark_Mode} width="24" height="24" alt="" />
+                            <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#" onClick={handelDarkMode}>
+                                <img src={darkMode ? Sun : Moon} width="24" height="24" alt="" />
                             </a>
                         </li>
                         <li>

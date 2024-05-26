@@ -8,7 +8,12 @@ const ProductContextProvider = (props) => {
     const [showDetails, setShowDetails] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [showCart, setShowCart] = useState(false);
-    const [cartData, setCartData] = useState([])
+    const [cartData, setCartData] = useState([]);
+    const [darkMode, setDarkMode] = useState(true);
+
+    function handelDarkMode() {
+        setDarkMode(!darkMode)
+    }
 
     function handelDeleteCart(event, itemId) {
         event.preventDefault();
@@ -71,7 +76,10 @@ const ProductContextProvider = (props) => {
         handelCloseCart,
         cartData,
         handelAddToCart,
-        handelDeleteCart
+        handelDeleteCart,
+        darkMode,
+        setDarkMode,
+        handelDarkMode
     };
 
     return (

@@ -1,12 +1,15 @@
 import Header from "./Header";
 import ProductList from "./Product/ProductList";
 import Sidebar from "./Sidebar";
-import ProductContextProvider from './Context/ProductContext'
+import { ProductContext } from "./Context/ProductContext";
+import { useContext } from 'react';
 
 const App = () => {
+  const { darkMode } = useContext(ProductContext);
+
   return (
     <>
-      <ProductContextProvider>
+      <div className={`h-full w-full ${darkMode ? 'dark' : ''}`}>
         <Header />
         <main>
           <div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
@@ -14,7 +17,7 @@ const App = () => {
             <ProductList />
           </div>
         </main>
-      </ProductContextProvider>
+      </div>
     </>
   )
 }
