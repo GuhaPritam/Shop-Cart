@@ -9,7 +9,6 @@ import CartDetail from './Product/CartDetail';
 
 function Header() {
     const { showCart, handelShowCart, cartData } = useContext(ProductContext);
-    console.log(cartData)
 
     return (
         <>
@@ -35,7 +34,9 @@ function Header() {
                             <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#" onClick={handelShowCart}>
                                 <img src={Shopping_cart} width="24" height="24" alt="" />
                                 {cartData?.length > 0 && (
-                                    <span>{cartData?.length}</span>
+                                    <span className='rounded-full absolute top-[-1rem] left-7 bg-[#12CF6F] text-white text-center p-1 w-7 h-7'>
+                                        {cartData?.length}
+                                    </span>
                                 )}
                             </a>
                         </li>

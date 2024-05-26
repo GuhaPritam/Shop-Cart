@@ -61,6 +61,7 @@ const ProductContextProvider = (props) => {
         setShowCart,
         handelShowCart,
         handelCloseCart,
+        cartData,
         handelAddToCart
     };
 
