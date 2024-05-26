@@ -10,6 +10,14 @@ const ProductContextProvider = (props) => {
     const [showCart, setShowCart] = useState(false);
     const [cartData, setCartData] = useState([])
 
+    function handelDeleteCart(event, itemId) {
+        event.preventDefault();
+        const filteredItem = cartData.filter((item) => {
+            return item.id !== itemId;
+        });
+        setCartData([...filteredItem])
+    }
+
     function handelAddToCart(e, element) {
         e.stopPropagation();
         const found = cartData.find((item) => {
@@ -62,7 +70,8 @@ const ProductContextProvider = (props) => {
         handelShowCart,
         handelCloseCart,
         cartData,
-        handelAddToCart
+        handelAddToCart,
+        handelDeleteCart
     };
 
     return (
