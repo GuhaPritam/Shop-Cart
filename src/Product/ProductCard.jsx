@@ -14,7 +14,7 @@ function ProductCard() {
           <a href="#" onClick={() => handelProductSelect(element)}>
             <img className="w-full h-[22rem] object-cover" src={element.image} alt="" />
             <figcaption className="pt-4">
-              <div className='h-[7rem]'>
+              <div className='h-[9rem]'>
                 <h3 className="text-xl mb-1">{element.title}</h3>
                 <p className="text-[#575A6E] text-sm mb-2">{element.category}</p>
                 <div className="flex items-center space-x-1 mb-5">
